@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git url: 'https://github.com/devopsjayantBhagat/django.git'
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: '*/main']], 
+                          extensions: [],
+                          userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/devopsjayantBhagat/django.git']]])
             }
         }
         stage('build && SonarQube analysis') {
