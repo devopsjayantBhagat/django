@@ -12,7 +12,8 @@ pipeline {
         stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "/var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner -Dsonar.host.url=http://192.168.0.107:9000 -Dsonar.projectName=testing -Dsonar.projectVersion=1.0 -Dsonar.projectKey=meanstack:app -Dsonar.sources=. -Dsonar.projectBaseDir=/var/jenkins_home/workspace/testing"
+                    sh "ls ${scannerHome}"
+                    sh "echo ${scannerHome}"
                 }
             }
         }
