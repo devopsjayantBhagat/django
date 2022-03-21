@@ -2,6 +2,10 @@
 import os
 import os
 import sys
+ 
+ip = '127.0.0.1'
+sock = socket.socket()
+sock.bind((ip, 9090))
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "composeexample.settings")
